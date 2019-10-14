@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Topnews_card, TopnewsService } from '../../../services/topnews.service';
 
 @Component({
   selector: 'app-topnews',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topnews.component.scss']
 })
 export class TopnewsComponent implements OnInit {
+  topnews: Topnews_card[] = [];
 
-  constructor() { }
+  constructor( private topnewsService: TopnewsService ) { }
 
   ngOnInit() {
+    this.topnews = this.topnewsService.getTopnews();
   }
 
 }

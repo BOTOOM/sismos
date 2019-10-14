@@ -5,6 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import mdb
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
+// servicio de noticias
+import { TopnewsService } from './services/topnews.service';
+
+
 // import de componentes 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,7 +46,9 @@ import { TopnewsTarjetaComponent } from './pages/home/topnews/topnews-tarjeta/to
     MDBBootstrapModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    TopnewsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

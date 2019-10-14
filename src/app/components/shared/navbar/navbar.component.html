@@ -1,12 +1,32 @@
 <header class="h-100">
-    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue accent-3" [containerInside]="true">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo darken-2" [containerInside]="true">
         <mdb-navbar-brand>
-            <a class="logo navbar-brand" href="#"><strong>ACM UD</strong></a>
+            <a class="logo navbar-brand" href="#"><strong>
+            <img src="assets/img/logoAcm_1.png" width="40" height="40" alt="">
+            ACM UD</strong></a>
         </mdb-navbar-brand>
         <links>
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active waves-light" mdbWavesEffect>
-                    <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['home']">Home</a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['News']">News</a>
+                </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown" dropdown routerLinkActive="active">
+                    <a mdbDropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    Grupos de Interes<span class="caret"></span></a>
+                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu" routerLinkActive="active">
+                        <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['Grupos']">Grupos</a>
+                        <a class="dropdown-item disabled" [routerLink]="['Proyectos']">Proyectos</a>
+                    </div>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['Eventos']">Eventos</a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['Quienes_somos']">Quienes somos</a>
                 </li>
                 <!-- Dropdown -->
                 <!-- <li class="nav-item dropdown" dropdown>

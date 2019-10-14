@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-topnews-tarjeta',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopnewsTarjetaComponent implements OnInit {
 
-  constructor() { }
+  @Input() topnews: any = {};
+
+  constructor( ) { }
 
   ngOnInit() {
   }
 
+  action(){
+    console.log("click");
+  }
 }
