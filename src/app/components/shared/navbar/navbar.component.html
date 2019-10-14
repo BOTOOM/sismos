@@ -1,1 +1,23 @@
-<p>navbar works!</p>
+<header class="h-100">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue accent-3" [containerInside]="true">
+        <mdb-navbar-brand>
+            <a class="logo navbar-brand" href="#"><strong>ACM UD</strong></a>
+        </mdb-navbar-brand>
+        <links>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active waves-light" mdbWavesEffect>
+                    <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <!-- Dropdown -->
+                <!-- <li class="nav-item dropdown" dropdown>
+                    <a mdbDropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    Proyecto<span class="caret"></span></a>
+                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Ante-Proyecto</a>
+                        <a class="dropdown-item disabled" href="#">Proyecto</a>
+                    </div>
+                </li> -->
+            </ul>
+        </links>
+    </mdb-navbar>
+</header> 

@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// import mdb
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 // import de componentes 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +18,7 @@ import { NewsComponent } from './pages/news/news.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { EventosComponent } from './pages/eventos/eventos.component';
 import { GruposDeInteresComponent } from './pages/grupos-de-interes/grupos-de-interes.component';
+import { TopnewsTarjetaComponent } from './pages/home/topnews/topnews-tarjeta/topnews-tarjeta.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +32,14 @@ import { GruposDeInteresComponent } from './pages/grupos-de-interes/grupos-de-in
     NewsComponent,
     QuienesSomosComponent,
     EventosComponent,
-    GruposDeInteresComponent
+    GruposDeInteresComponent,
+    TopnewsTarjetaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    MDBBootstrapModule.forRoot(),
     AppRoutingModule
   ],
   providers: [],
