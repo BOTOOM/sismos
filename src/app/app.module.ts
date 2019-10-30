@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+
 
 // import tema matarial
 import { MaterialModule } from './temas/material/material.module';
@@ -55,6 +57,7 @@ import { ProyectosComponent } from './pages/proyectos/proyectos.component';
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
+    HttpClientModule,
     AppRoutingModule,
     MaterialModule.forRoot(),
     BrowserAnimationsModule
