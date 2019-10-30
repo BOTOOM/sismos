@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// import tema matarial
+import { MaterialModule } from './temas/material/material.module';
+
+
 // import mdb
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
@@ -24,6 +28,9 @@ import { EventosComponent } from './pages/eventos/eventos.component';
 import { GruposDeInteresComponent } from './pages/grupos-de-interes/grupos-de-interes.component';
 import { TopnewsTarjetaComponent } from './pages/home/topnews/topnews-tarjeta/topnews-tarjeta.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoticiaComponent } from './components/noticia/noticia.component';
+import { EventoComponent } from './components/evento/evento.component';
+import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +45,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     QuienesSomosComponent,
     EventosComponent,
     GruposDeInteresComponent,
-    TopnewsTarjetaComponent
+    TopnewsTarjetaComponent,
+    NoticiaComponent,
+    EventoComponent,
+    ProyectosComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +56,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
+    MaterialModule.forRoot(),
     BrowserAnimationsModule
   ],
   providers: [
