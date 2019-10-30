@@ -23,6 +23,7 @@ import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.compo
 import { EventosComponent } from './pages/eventos/eventos.component';
 import { GruposDeInteresComponent } from './pages/grupos-de-interes/grupos-de-interes.component';
 import { TopnewsTarjetaComponent } from './pages/home/topnews/topnews-tarjeta/topnews-tarjeta.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { TopnewsTarjetaComponent } from './pages/home/topnews/topnews-tarjeta/to
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     TopnewsService
