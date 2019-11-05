@@ -11,6 +11,10 @@ import { MaterialModule } from './temas/material/material.module';
 // import mdb
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
+
+// import api google maps
+import { AgmCoreModule } from '@agm/core';
+
 // servicio de noticias
 import { TopnewsService } from './services/topnews.service';
 
@@ -60,6 +64,9 @@ import { ProyectosComponent } from './pages/proyectos/proyectos.component';
     HttpClientModule,
     AppRoutingModule,
     MaterialModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDv_NF3NRZyDg5UjDb5I-0LobD-eXtfIaQ'
+    }),
     BrowserAnimationsModule
   ],
   providers: [

@@ -1,15 +1,14 @@
-<div class="col  s12 m4 l4">
-    <div class="card test">
-        <div class="card-image">
-            <img src="{{ topnews.img }}">
-            <a class="btn-floating halfway-fab waves-effect waves-light  blue darken-1" (click)="action()"><i class="material-icons">chevron_right</i></a>
-        </div>
-        <div class="card-content">
-            <span class="card-title">{{ topnews.titulo }}</span>
-            <p>{{ topnews.descripcion }}</p>
-        </div>
-        <div class="card-content grey lighten-4">
-            <!-- <p>fecha</p> -->
-        </div>
+<div class="card">
+    <div class="view view-cascade overlay waves-light zoom" mdbWavesEffect>
+        <img class="card-img-top img-fluid" src="{{ topnews.img }}" alt="Card image cap">  
+        <a>
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ topnews.titulo }}</h5>
+        <p class="card-text">{{ topnews.descripcion }}</p>
+        <a mdbBtn  color="primary" mdbWavesEffect (click)="action()" >Leer mas</a>
+        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
     </div>
 </div>
