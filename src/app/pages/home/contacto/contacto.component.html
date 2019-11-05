@@ -1,1 +1,54 @@
-<p>contacto works!</p>
+<div >
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12">
+                    <h1 class="text-center ">¡Contacta con nosotros!</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6" >
+            <p>Llena el formulario y un correo será enviado. Pronto recibiras tu respuesta.</p>
+            <!-- <form class="example-form"> -->
+                <mat-form-field class="col-12">
+                    <input matInput placeholder="Email" type="text" required="true">
+                </mat-form-field>
+                <mat-form-field class="col-12">
+                    <input matInput placeholder="Email" type="email" required="true">
+                </mat-form-field>
+                <mat-form-field class="col-12">
+                    <input matInput placeholder="Entidad o intitución" type="text" required="true">
+                </mat-form-field>
+                <mat-form-field class="col-12">
+                    <textarea matInput placeholder="Mensaje" type="text" required="true"></textarea>
+                </mat-form-field>
+                <div class="text-center">
+                    <button type="button" mdbBtn class="waves-light primary-color" mdbWavesEffect><i class="fas fa-paper-plane"></i>  Enviar</button>
+                </div>
+            <!-- </form> -->
+              
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-6" >
+            <agm-map
+            [latitude]="lat"
+            [longitude]="lng"
+            [zoom]="zoom"
+            [disableDefaultUI]="false">
+                <agm-marker
+                [latitude]="lat"
+                [longitude]="lng"
+                [markerDraggable]="false" >
+            </agm-marker>
+            </agm-map>
+            <!--Facebook-->
+            <!-- <button type="button" mdbBtn color="fb" class="waves-light" mdbWavesEffect><i class="fab fa-facebook-f left"></i>Facebook</button> -->
+            <!--Github-->
+            <!-- <button type="button" mdbBtn color="git" class="waves-light" mdbWavesEffect><i class="fab fa-github left"></i>Github</button> -->
+
+
+        </div>
+    </div>
+    
+</div>
+
