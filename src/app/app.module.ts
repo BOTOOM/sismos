@@ -43,7 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     MaterialModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDv_NF3NRZyDg5UjDb5I-0LobD-eXtfIaQ'
+      apiKey: 'AIzaSyBeh_MR7yO7QzliNFhgITYzGnn80Dn_q74'
     }),
     BrowserAnimationsModule
   ],

@@ -1,8 +1,25 @@
-<!-- <app-banner></app-banner> -->
-<br>
-<div class="m-lg-5">
-    <!-- <app-topnews> </app-topnews>
 
-    <app-contacto></app-contacto> -->
+<div class="m-lg-5">
+    <div *ngIf="mapa">
+        <agm-map
+        [latitude]="lat"
+        [longitude]="lng"
+        [zoom]="zoom"
+      [disableDefaultUI]="false">
+          <!-- <agm-marker
+         *ngFor="let make of markers"
+         [latitude]="make.lat"
+          [longitude]="make.lng"
+          [label]="make.label"
+          [markerDraggable]="make.draggable" >
+        </agm-marker> -->
+        <!-- <agm-polyline *ngFor="let poli of polilinea">
+            <agm-polyline-point [latitude]="poli.latIni" [longitude]="poli.lngIni">
+            </agm-polyline-point>
+            <agm-polyline-point [latitude]="poli.latFin" [longitude]="poli.lngFin">
+            </agm-polyline-point>
+        </agm-polyline> -->
+        </agm-map>
+    </div>
 
 </div>

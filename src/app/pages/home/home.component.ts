@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IrisService } from '../../services/iris.service';
+import { NgxXml2jsonService } from 'ngx-xml2json';
 
 
 @Component({
@@ -10,20 +11,32 @@ import { IrisService } from '../../services/iris.service';
 export class HomeComponent implements OnInit {
 
   grupos: any;
-  
+  xml = `<note><to>User</to><from>Library</from><heading>Message</heading><body>Some XML to convert to JSON!</body></note>`;
+  eventos: any;
+  mapa: boolean = true;
+  lat = 4.66774;
+  lng = -74.13200;
+  zoom = 2;
+
 
   constructor(
-    private irisService: IrisService
-
+    private irisService: IrisService,
+    private ngxXml2jsonService: NgxXml2jsonService
   ) { }
 
   ngOnInit() {
-    this.irisService.get('').subscribe( dato => {
+    this.irisService.get('').subscribe(dato => {
       // console.log(dato);
       this.grupos = dato;
       console.log(this.grupos)
     }, (error_service) => {
-      console.log(error_service);
+      // console.log(error_service);
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(error_service.error.text, 'text/xml');
+      const obj = this.ngxXml2jsonService.xmlToJson(xml);
+      // console.log(obj);
+      this.eventos = obj['q:quakeml']['eventParameters']['event'];
+      console.log(this.eventos);
     });
   }
 
