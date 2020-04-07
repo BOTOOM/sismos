@@ -8,8 +8,9 @@
           [label]="make.label"
           [markerDraggable]="make.draggable" >
         </agm-marker> -->
-            <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="100000" [fillColor]="'red'"
-                [circleDraggable]="true" [editable]="false">
+            <agm-circle *ngFor="let simple of datosSimples"
+            [latitude]="simple.Latitud" [longitude]="simple.Longitud" [radius]="80000" [fillColor]="'red'"
+                [circleDraggable]="false" [editable]="false"  (circleClick)="circuloClic($event)"  [fillOpacity]="0.5">
             </agm-circle>
             <!-- <agm-polyline *ngFor="let poli of polilinea">
             <agm-polyline-point [latitude]="poli.latIni" [longitude]="poli.lngIni">
