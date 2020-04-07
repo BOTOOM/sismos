@@ -1,19 +1,17 @@
-
 <div class="m-lg-5">
     <div *ngIf="mapa">
-        <agm-map
-        [latitude]="lat"
-        [longitude]="lng"
-        [zoom]="zoom"
-      [disableDefaultUI]="false">
-          <!-- <agm-marker
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false">
+            <!-- <agm-marker
          *ngFor="let make of markers"
          [latitude]="make.lat"
           [longitude]="make.lng"
           [label]="make.label"
           [markerDraggable]="make.draggable" >
         </agm-marker> -->
-        <!-- <agm-polyline *ngFor="let poli of polilinea">
+            <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="100000" [fillColor]="'red'"
+                [circleDraggable]="true" [editable]="false">
+            </agm-circle>
+            <!-- <agm-polyline *ngFor="let poli of polilinea">
             <agm-polyline-point [latitude]="poli.latIni" [longitude]="poli.lngIni">
             </agm-polyline-point>
             <agm-polyline-point [latitude]="poli.latFin" [longitude]="poli.lngFin">
