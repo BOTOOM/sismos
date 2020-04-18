@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
       const obj = this.ngxXml2jsonService.xmlToJson(xml);
       // console.log(obj);
       this.eventos = obj['q:quakeml']['eventParameters']['event'];
-      // console.log(this.eventos);
+      console.log(this.eventos);
       this.converionDatosSimples();
     });
   }
@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
   converionDatosSimples() {
     for (let i = 0; i < this.eventos.length; i++) {
       this.datosSimples.push({
+        Fecha: this.eventos[i]['origin']['time']['value'] ,
         Lugar: this.eventos[i]['description']['text'],
         Longitud: Number( this.eventos[i]['origin']['longitude']['value'] ),
         Latitud: Number( this.eventos[i]['origin']['latitude']['value'] ),
