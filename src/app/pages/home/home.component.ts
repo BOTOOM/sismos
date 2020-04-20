@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.irisService.get('').subscribe(dato => {
+    this.irisService.get('query?starttime=2020-02-01T00:00:00&endtime=2020-04-07T11:00:00').subscribe(dato => {
       // console.log(dato);
       this.grupos = dato;
       console.log(this.grupos)

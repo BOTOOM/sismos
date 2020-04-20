@@ -5,14 +5,14 @@
         <h5 class="col-12">Selecciones el rango de fechas a consultar</h5>
         <mat-form-field class=" col-lg-6 col-sm-12 col-md-12 p-1" style="width: 30%;">
             <mat-label>Selecciones fecha de inicio</mat-label>
-            <input matInput [matDatepicker]="picker">
+            <input matInput [matDatepicker]="picker" [(ngModel)]="fechaInicio">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
     
         <mat-form-field class="col-lg-6 col-sm-12 col-md-12 p-1" style="width: 30%;">
             <mat-label>Selecciones fecha de fin</mat-label>
-            <input matInput [matDatepicker]="picker2">
+            <input matInput [matDatepicker]="picker2" [(ngModel)]="fechaFin">
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
         </mat-form-field>
@@ -31,3 +31,6 @@
       
       
 </div>
+
+
+

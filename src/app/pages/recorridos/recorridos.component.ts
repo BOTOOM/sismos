@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-recorridos',
@@ -7,15 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecorridosComponent implements OnInit {
 
+  fechaInicio: Date;
+  fechaFin: Date;
+
   busquedaDatos = false;
 
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
   buscarEventos() {
-    this.busquedaDatos = true;
+    // this.busquedaDatos = true;
+    console.log(this.fechaInicio);
+    if (this.fechaInicio === undefined) {
+      this.openSnackBar('Selecciones fecha de inicio', 'Aceptar');
+    }
+    if (this.fechaFin === undefined) {
+      this.openSnackBar('Selecciones fecha de fin', 'Aceptar');
+    }
+    if (  (this.fechaFin !== undefined) && (this.fechaInicio !== undefined) ) {
+      console.log(`fechaIni:${this.fechaInicio.toISOString()}&fechaFin:${this.fechaFin}`);
+    }
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
   }
 
 
