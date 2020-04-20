@@ -1,1 +1,33 @@
-<p>recorridos works!</p>
+<div class="text-center row">
+    
+    <div class="col-12" *ngIf="!busquedaDatos" >
+
+        <h5 class="col-12">Selecciones el rango de fechas a consultar</h5>
+        <mat-form-field class=" col-lg-6 col-sm-12 col-md-12 p-1" style="width: 30%;">
+            <mat-label>Selecciones fecha de inicio</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    
+        <mat-form-field class="col-lg-6 col-sm-12 col-md-12 p-1" style="width: 30%;">
+            <mat-label>Selecciones fecha de fin</mat-label>
+            <input matInput [matDatepicker]="picker2">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="buscarEventos()">Consultar Eventos</button>
+    </div>
+
+    <div class="col-12 text-center" *ngIf="busquedaDatos" >
+
+        <h5 class="col-12">Consultanto datos de eventos</h5>
+        <mat-spinner class="rounded mx-auto d-block" ></mat-spinner>
+
+        
+    </div>
+
+      
+      
+</div>

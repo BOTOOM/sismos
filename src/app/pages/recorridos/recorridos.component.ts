@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecorridosComponent implements OnInit {
 
+  busquedaDatos = false;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  buscarEventos() {
+    this.busquedaDatos = true;
+  }
+
 
 }
