@@ -32,5 +32,48 @@
       
 </div>
 
+<div class="row text-center" *ngIf="lista"> 
+    <div class="col-12">
+        <h6 class="col-12">Lista de recorridos</h6>
+        <mat-form-field class="col-9 p-1"  style="width: 30%;">
+        <mat-label>Lista</mat-label>
+        <mat-select  [(ngModel)]="listaseleccionada">
+            <mat-option *ngFor="let recorrido of recorridos, let i=index" [value]="recorrido" >
+            Recorrido {{i+1}}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+    <button class="col-3" mat-raised-button color="primary" (click)="prueba()">Mostrar/Olcultar mapa</button>
+
+    </div>
+    
+</div>
+
+<!-- <div class="row"> -->
+
+    <div *ngIf="mapa">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false">
+            <agm-marker
+         *ngFor="let marker of listaseleccionada['Markers']"
+         [latitude]="marker.lat"
+          [longitude]="marker.lng"
+          [label]="marker.label"
+          [markerDraggable]="marker.draggable" >
+        </agm-marker>
+            <!-- <agm-circle *ngFor="let simple of datosSimples"
+            [latitude]="simple.Latitud" [longitude]="simple.Longitud" [radius]="80000" [fillColor]="'red'"
+                [circleDraggable]="false" [editable]="false"  (circleClick)="circuloClic($event)"  [fillOpacity]="0.5">
+            </agm-circle> -->
+            <agm-polyline *ngFor="let poli of listaseleccionada['Lineas']">
+            <agm-polyline-point [latitude]="poli.latIni" [longitude]="poli.lngIni">
+            </agm-polyline-point>
+            <agm-polyline-point [latitude]="poli.latFin" [longitude]="poli.lngFin">
+            </agm-polyline-point>
+        </agm-polyline>
+        </agm-map>
+    </div>
+
+<!-- </div> -->
+
 
 

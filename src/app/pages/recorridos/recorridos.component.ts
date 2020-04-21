@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { IrisService } from '../../services/iris.service';
 import { SismosApiService } from '../../services/sismos-api.service';
@@ -10,7 +10,7 @@ import { SismosApiService } from '../../services/sismos-api.service';
   templateUrl: './recorridos.component.html',
   styleUrls: ['./recorridos.component.scss']
 })
-export class RecorridosComponent implements OnInit {
+export class RecorridosComponent implements OnInit, OnChanges {
 
   mensaje: string;
 
@@ -18,8 +18,14 @@ export class RecorridosComponent implements OnInit {
   fechaFin: Date;
 
   busquedaDatos = false;
+  mapa: boolean;
+  lat = 4.66774;
+  lng = -74.13200;
+  zoom = 3;
   datosEventos = [];
   recorridos = [];
+  lista: boolean;
+  listaseleccionada: any;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -27,13 +33,21 @@ export class RecorridosComponent implements OnInit {
     private sismosApiService: SismosApiService,
     ) {
       this.busquedaDatos = false;
+      this.mapa = false;
+      this.lista = false;
      }
 
   ngOnInit() {
   }
 
+  ngOnChanges(event: any) {
+    console.log(event);
+  }
+
   buscarEventos() {
     // this.busquedaDatos = true;
+    this.lista = false;
+    this.mapa = false;
     console.log(this.fechaInicio);
     if (this.fechaInicio === undefined) {
       this.openSnackBar('Selecciones fecha de inicio', 'Aceptar');
@@ -42,11 +56,11 @@ export class RecorridosComponent implements OnInit {
       this.openSnackBar('Selecciones fecha de fin', 'Aceptar');
     }
     if (  (this.fechaFin !== undefined) && (this.fechaInicio !== undefined) ) {
-      console.log(`query?starttime=${this.fechaInicio.toISOString()}&endtime=${this.fechaFin.toISOString()}`);
+      // console.log(`query?starttime=${this.fechaInicio.toISOString()}&endtime=${this.fechaFin.toISOString()}`);
       this.busquedaDatos = true;
       this.mensaje = 'Consultanto datos de eventos';
 
-      this.irisService.get('query?starttime=2020-02-01T00:00:00&endtime=2020-04-07T11:00:00').subscribe(dato => {
+      this.irisService.get(`query?starttime=${this.fechaInicio.toISOString()}&endtime=${this.fechaFin.toISOString()}`).subscribe(dato => {
       }, (error_service) => {
         // this.mensaje = 'Realizando conversion de datos';
         // this.datosEventos =  this.irisService.XmlToJSON(error_service);
@@ -64,11 +78,14 @@ export class RecorridosComponent implements OnInit {
   }
 
   ObtenerRecorridos(datosEventos: any) {
+    console.log(datosEventos);
     this.mensaje = 'Identificando recorridos de los sismos';
 
     this.sismosApiService.post('evento', datosEventos).subscribe(dato => {
-      console.log(dato);
+      this.recorridos = <any[]>dato;
+      console.log(this.recorridos);
       this.busquedaDatos = false;
+      this.lista = true;
 
     }, (error) => {
       console.log(error);
@@ -79,6 +96,17 @@ export class RecorridosComponent implements OnInit {
       // this.busquedaDatos = false;
     });
 
+  }
+
+  prueba() {
+    console.log(this.listaseleccionada);
+    this.mapa = !this.mapa;
+
+  }
+
+  indexLista(event: any){
+    // this.listaseleccionada = i;
+    console.log(event);
   }
 
 
