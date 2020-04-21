@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { IrisService } from '../../services/iris.service';
+import { SismosApiService } from '../../services/sismos-api.service';
+
 
 
 @Component({
@@ -17,12 +19,14 @@ export class RecorridosComponent implements OnInit {
 
   busquedaDatos = false;
   datosEventos = [];
+  recorridos = [];
 
   constructor(
     private snackBar: MatSnackBar,
     private irisService: IrisService,
+    private sismosApiService: SismosApiService,
     ) {
-      this.busquedaDatos = false;false
+      this.busquedaDatos = false;
      }
 
   ngOnInit() {
@@ -43,22 +47,12 @@ export class RecorridosComponent implements OnInit {
       this.mensaje = 'Consultanto datos de eventos';
 
       this.irisService.get('query?starttime=2020-02-01T00:00:00&endtime=2020-04-07T11:00:00').subscribe(dato => {
-        // // console.log(dato);
-        // this.grupos = dato;
-        // console.log(this.grupos)
       }, (error_service) => {
         // this.mensaje = 'Realizando conversion de datos';
-        this.datosEventos =  this.irisService.XmlToJSON(error_service);
-        console.log(this.datosEventos);
-        this.busquedaDatos = false;
-        
-        // const parser = new DOMParser();
-        // const xml = parser.parseFromString(error_service.error.text, 'text/xml');
-        // const obj = this.ngxXml2jsonService.xmlToJson(xml);
-        // // console.log(obj);
-        // this.eventos = obj['q:quakeml']['eventParameters']['event'];
-        // console.log(this.eventos);
-        // this.converionDatosSimples();
+        // this.datosEventos =  this.irisService.XmlToJSON(error_service);
+        // console.log(this.datosEventos);
+        this.ObtenerRecorridos(this.irisService.XmlToJSON(error_service))
+        // this.busquedaDatos = false;
       });
     }
   }
@@ -67,6 +61,24 @@ export class RecorridosComponent implements OnInit {
     this.snackBar.open(message, action, {
       duration: 3000,
     });
+  }
+
+  ObtenerRecorridos(datosEventos: any) {
+    this.mensaje = 'Identificando recorridos de los sismos';
+
+    this.sismosApiService.post('evento', datosEventos).subscribe(dato => {
+      console.log(dato);
+      this.busquedaDatos = false;
+
+    }, (error) => {
+      console.log(error);
+      // this.mensaje = 'Realizando conversion de datos';
+      // this.datosEventos =  this.irisService.XmlToJSON(error_service);
+      // console.log(this.datosEventos);
+      // this.ObtenerRecorridos(this.irisService.XmlToJSON(error_service))
+      // this.busquedaDatos = false;
+    });
+
   }
 
 
