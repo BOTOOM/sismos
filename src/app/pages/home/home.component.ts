@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   xml = `<note><to>User</to><from>Library</from><heading>Message</heading><body>Some XML to convert to JSON!</body></note>`;
   eventos: any;
   datosSimples = [];
-  mapa: boolean = true;
+  mapa = true;
   lat = 4.66774;
   lng = -74.13200;
   zoom = 2;
@@ -29,11 +29,11 @@ export class HomeComponent implements OnInit {
     this.irisService.get('').subscribe(dato => {
       // console.log(dato);
       this.grupos = dato;
-      console.log(this.grupos)
-    }, (error_service) => {
+      console.log(this.grupos);
+    }, (errorService) => {
       // console.log(error_service);
       const parser = new DOMParser();
-      const xml = parser.parseFromString(error_service.error.text, 'text/xml');
+      const xml = parser.parseFromString(errorService.error.text, 'text/xml');
       const obj = this.ngxXml2jsonService.xmlToJson(xml);
       // console.log(obj);
       this.eventos = obj['q:quakeml']['eventParameters']['event'];

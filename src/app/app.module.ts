@@ -16,10 +16,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AgmCoreModule } from '@agm/core';
 
 // servicio de noticias
-import { TopnewsService } from './services/topnews.service';
 
 
-// import de componentes 
+// import de componentes
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -46,9 +45,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       apiKey: 'AIzaSyBeh_MR7yO7QzliNFhgITYzGnn80Dn_q74'
     }),
     BrowserAnimationsModule
-  ],
-  providers: [
-    TopnewsService
   ],
   bootstrap: [AppComponent]
 })
