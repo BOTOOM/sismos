@@ -10,7 +10,7 @@ const url = `https://raw.githubusercontent.com/ACMUD/Datos_json/master/App_web/`
 export class DatosJsonService {
 
   constructor(private http: HttpClient) {
-    console.info("servicio de datos_json funcionando");
+    console.info('servicio de datos_json funcionando');
     // this.get('ante_proy');
    }
 
